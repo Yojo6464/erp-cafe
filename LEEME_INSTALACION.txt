@@ -1,0 +1,26 @@
+SIGA ERP — MOTOR DE ÓRDENES DE PRODUCCIÓN v1
+
+1. Cierre SIGA ERP.
+2. Copie motor_ordenes_produccion.py y verificar_motor_ordenes.py en:
+   C:\Users\jrive\visual
+3. Abra PowerShell en esa carpeta.
+4. Ejecute:
+   python verificar_motor_ordenes.py
+5. Adjunte el archivo generado:
+   C:\Users\jrive\visual\resultado_verificacion_motor_ordenes.txt
+
+SEGURIDAD
+- No reemplaza archivos existentes salvo que ya exista un archivo con el mismo nombre.
+- La prueba de escritura usa una transacción y termina con ROLLBACK.
+- No deja órdenes de prueba.
+- No altera tablas ni datos permanentes.
+
+FUNCIONES IMPLEMENTADAS
+- Crear, consultar y listar órdenes.
+- Aprobar, liberar, iniciar, suspender, terminar, cerrar y anular.
+- Máquina de estados.
+- Historial automático.
+- Requerimientos calculados desde la BOM.
+- Validación de inventario antes de liberar.
+- Consecutivo OP-AAAA-000001.
+- Transacciones con rollback ante errores.

@@ -1,0 +1,55 @@
+
+====================================================================================
+VERIFICACIÓN MOTOR DE ÓRDENES — SIGA ERP
+====================================================================================
+Fecha: 2026-07-19 14:03:06
+Base de datos: C:\Users\jrive\visual\erp_cafe.db
+
+====================================================================================
+1. RESUMEN
+====================================================================================
+{
+  "total_ordenes": 0,
+  "por_estado": {},
+  "productos_activos": 1,
+  "formulas_activas": 1
+}
+
+====================================================================================
+2. ÓRDENES ACTUALES
+====================================================================================
+No hay órdenes en ordenes_produccion_v2.
+
+====================================================================================
+3. PRODUCTOS Y FÓRMULAS
+====================================================================================
+PRODUCTOS:
+{'id': 1, 'codigo': 'PT-CAFE-001', 'nombre': 'CAFE PREMIUM', 'presentacion': '500 GR', 'unidad': 'UND', 'estado': 'ACTIVO'}
+
+FÓRMULAS:
+{'id': 1, 'producto_id': 1, 'codigo': 'F-PT-CAFE-001-V1', 'version': 1, 'cantidad_base': 1.0, 'unidad_base': 'UND', 'estado': 'ACTIVA', 'costo_estandar_total': 65000.0}
+{'id': 2, 'producto_id': 1, 'codigo': 'F-PT-CAFE-001-V2', 'version': 2, 'cantidad_base': 1.0, 'unidad_base': 'UND', 'estado': 'BORRADOR', 'costo_estandar_total': 16758.571429}
+
+====================================================================================
+4. COMPONENTES DE CADA FÓRMULA
+====================================================================================
+
+F-PT-CAFE-001-V1:
+  {'id': 1, 'formula_id': 1, 'componente': 'Café Premium', 'presentacion': '500 g', 'cantidad': 1.0, 'unidad': 'UND', 'merma_pct': 30.0, 'costo_unitario': 0.0, 'tipo': 'MATERIA PRIMA'}
+
+F-PT-CAFE-001-V2:
+  {'id': 2, 'formula_id': 2, 'componente': 'Cafe verde', 'presentacion': '500', 'cantidad': 1.0, 'unidad': 'UND', 'merma_pct': 0.0, 'costo_unitario': 0.0, 'tipo': 'MATERIA PRIMA'}
+  {'id': 3, 'formula_id': 2, 'componente': 'Bolsa', 'presentacion': '500', 'cantidad': 1.0, 'unidad': 'UND', 'merma_pct': 0.0, 'costo_unitario': 0.0, 'tipo': 'MATERIAL DE EMPAQUE'}
+  {'id': 4, 'formula_id': 2, 'componente': 'etiqueta', 'presentacion': '500', 'cantidad': 1.0, 'unidad': 'UND', 'merma_pct': 0.0, 'costo_unitario': 0.0, 'tipo': 'MATERIAL DE EMPAQUE'}
+
+====================================================================================
+5. PRUEBA TRANSACCIONAL SEGURA
+====================================================================================
+Se crea una orden temporal y se revierte con ROLLBACK.
+Registro temporal creado: ID 1
+Rollback confirmado: SÍ
+
+====================================================================================
+RESULTADO
+====================================================================================
+MOTOR VERIFICADO SIN MODIFICAR DATOS PERMANENTES.

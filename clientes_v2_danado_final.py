@@ -1,0 +1,276 @@
+import tkinter as tk
+from tkinter import ttk, messagebox
+import sqlite3
+from datetime import datetime
+
+# =====================================
+
+# CONEXION
+
+# =====================================
+
+RUTA_DB = r"C:\Users\jrive\visual\erp_cafe.db"
+
+conexion = sqlite3.connect(RUTA_DB)
+cursor = conexion.cursor()
+
+# =====================================
+
+# FUNCIONES
+
+# =====================================
+
+def guardar_cliente():
+
+```
+try:
+
+    nit = entry_nit.get().strip()
+    nombre = entry_nombre.get().strip()
+    telefono = entry_telefono.get().strip()
+    ciudad = entry_ciudad.get().strip()
+    correo = entry_correo.get().strip()
+
+    if nombre == "":
+        messagebox.showerror(
+            "Error",
+            "Debe ingresar el nombre."
+        )
+        return
+
+    fecha = datetime.now().strftime(
+        "%Y-%m-%d %H:%M:%S"
+    )
+
+    cursor.execute(
+        """
+        INSERT INTO clientes
+        (
+            fecha_registro,
+            nit,
+            nombre,
+            telefono,
+            ciudad,
+            correo
+        )
+        VALUES (?,?,?,?,?,?)
+        """,
+        (
+            fecha,
+            nit,
+            nombre,
+            telefono,
+            ciudad,
+            correo
+        )
+    )
+
+    conexion.commit()
+
+    messagebox.showinfo(
+        "Éxito",
+        "Cliente registrado."
+    )
+
+    entry_nit.delete(0, tk.END)
+    entry_nombre.delete(0, tk.END)
+    entry_telefono.delete(0, tk.END)
+    entry_ciudad.delete(0, tk.END)
+    entry_correo.delete(0, tk.END)
+
+    mostrar_clientes()
+
+except Exception as e:
+
+    messagebox.showerror(
+        "Error",
+        str(e)
+    )
+```
+
+def mostrar_clientes():
+
+```
+tabla.delete(*tabla.get_children())
+
+cursor.execute(
+    """
+    SELECT
+        id,
+        IFNULL(nit,''),
+        nombre,
+        telefono,
+        ciudad,
+        correo
+    FROM clientes
+    ORDER BY nombre
+    """
+)
+
+registros = cursor.fetchall()
+
+for fila in registros:
+
+    tabla.insert(
+        "",
+        tk.END,
+        values=fila
+    )
+```
+
+# =====================================
+
+# VENTANA
+
+# =====================================
+
+ventana = tk.Tk()
+
+ventana.title(
+"ERP Cafe Alto de la Cruz - Clientes"
+)
+
+ventana.geometry("1250x650")
+
+# =====================================
+
+# TITULO
+
+# =====================================
+
+titulo = tk.Label(
+ventana,
+text="GESTION DE CLIENTES",
+font=("Arial", 18, "bold")
+)
+
+titulo.pack(pady=10)
+
+# =====================================
+
+# FORMULARIO
+
+# =====================================
+
+frame = tk.Frame(ventana)
+
+frame.pack(pady=10)
+
+tk.Label(
+frame,
+text="NIT"
+).grid(row=0, column=0, padx=10, pady=5)
+
+entry_nit = tk.Entry(
+frame,
+width=20
+)
+
+entry_nit.grid(row=1, column=0)
+
+tk.Label(
+frame,
+text="Nombre"
+).grid(row=0, column=1, padx=10, pady=5)
+
+entry_nombre = tk.Entry(
+frame,
+width=30
+)
+
+entry_nombre.grid(row=1, column=1)
+
+tk.Label(
+frame,
+text="Telefono"
+).grid(row=0, column=2, padx=10, pady=5)
+
+entry_telefono = tk.Entry(
+frame,
+width=20
+)
+
+entry_telefono.grid(row=1, column=2)
+
+tk.Label(
+frame,
+text="Ciudad"
+).grid(row=0, column=3, padx=10, pady=5)
+
+entry_ciudad = tk.Entry(
+frame,
+width=20
+)
+
+entry_ciudad.grid(row=1, column=3)
+
+tk.Label(
+frame,
+text="Correo"
+).grid(row=0, column=4, padx=10, pady=5)
+
+entry_correo = tk.Entry(
+frame,
+width=30
+)
+
+entry_correo.grid(row=1, column=4)
+
+tk.Button(
+ventana,
+text="Guardar Cliente",
+width=25,
+command=guardar_cliente
+).pack(pady=10)
+
+# =====================================
+
+# TABLA
+
+# =====================================
+
+tabla = ttk.Treeview(
+ventana,
+columns=(
+"ID",
+"NIT",
+"Nombre",
+"Telefono",
+"Ciudad",
+"Correo"
+),
+show="headings"
+)
+
+tabla.heading("ID", text="ID")
+tabla.heading("NIT", text="NIT")
+tabla.heading("Nombre", text="Nombre")
+tabla.heading("Telefono", text="Telefono")
+tabla.heading("Ciudad", text="Ciudad")
+tabla.heading("Correo", text="Correo")
+
+tabla.column("ID", width=60)
+tabla.column("NIT", width=140)
+tabla.column("Nombre", width=250)
+tabla.column("Telefono", width=130)
+tabla.column("Ciudad", width=150)
+tabla.column("Correo", width=250)
+
+tabla.pack(
+fill="both",
+expand=True,
+padx=10,
+pady=10
+)
+
+# =====================================
+
+# INICIO
+
+# =====================================
+
+mostrar_clientes()
+
+ventana.mainloop()
+
+conexion.close()

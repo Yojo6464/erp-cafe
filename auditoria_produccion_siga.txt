@@ -1,0 +1,416 @@
+AUDITORÍA DE INICIO — MÓDULO DE PRODUCCIÓN SIGA ERP
+Fecha y hora: 2026-07-19 13:49:16
+Carpeta: C:\Users\jrive\visual
+Base de datos: C:\Users\jrive\visual\erp_cafe.db
+
+========================================================================================
+1. VALIDACIÓN DE RUTAS
+========================================================================================
+Existe carpeta visual: SÍ
+Existe base de datos: SÍ
+
+========================================================================================
+2. ARCHIVOS PYTHON RELACIONADOS
+========================================================================================
+- auditoria_inicio_produccion_siga.py | 6,588 bytes | 2026-07-19 13:48:28
+- bom_profesional_compacto_v4.py | 38,387 bytes | 2026-07-12 06:01:42
+- bom_profesional_v3.py | 46,292 bytes | 2026-07-12 05:45:55
+- costos_industriales.py | 68,784 bytes | 2026-07-10 16:02:24
+- crea_tabla_produccion_v2.py | 922 bytes | 2026-06-12 18:00:59
+- crear_tabla_recepcion_produccion.py | 681 bytes | 2026-06-13 05:36:24
+- ejecucion_produccion_v3.py | 18,438 bytes | 2026-07-11 21:47:25
+- formulas_produccion_v2.py | 40,406 bytes | 2026-07-11 21:19:05
+- historico_produccion.py | 2,295 bytes | 2026-06-12 08:55:50
+- instalar_bom_profesional_v3.py | 9,081 bytes | 2026-07-11 22:25:15
+- instalar_ejecucion_produccion_v3.py | 8,117 bytes | 2026-07-11 21:47:25
+- instalar_mrp_produccion_v1.py | 5,298 bytes | 2026-07-11 22:34:57
+- instalar_ordenes_produccion_v2.py | 4,850 bytes | 2026-07-11 21:30:58
+- instalar_produccion_bom_v2.py | 5,101 bytes | 2026-07-11 21:19:05
+- main_erp_respaldo_antes_costos.py | 45,628 bytes | 2026-07-10 13:17:45
+- main_erp_respaldo_antes_produccion.py | 45,037 bytes | 2026-07-10 10:48:13
+- main_erp_v1_4_produccion_integrada.py | 45,225 bytes | 2026-07-10 12:43:10
+- motor_ejecucion_produccion_v3.py | 26,368 bytes | 2026-07-11 21:47:25
+- mrp_produccion_v1.py | 26,923 bytes | 2026-07-11 22:34:57
+- ordenes_produccion_v2.py | 34,825 bytes | 2026-07-11 21:30:58
+- produccion.py | 3,342 bytes | 2026-06-12 08:55:50
+- produccion_cafe.py | 4,100 bytes | 2026-06-14 12:23:43
+- produccion_cafe_backup.py | 4,100 bytes | 2026-06-14 12:23:43
+- produccion_costos.py | 9,264 bytes | 2026-06-12 08:55:50
+- produccion_integrada.py | 35,014 bytes | 2026-07-10 12:42:25
+- produccion_integrada_respaldo_v1.py | 35,014 bytes | 2026-07-10 12:42:25
+- produccion_v2.py | 12,890 bytes | 2026-06-13 12:03:52
+- produccion_v2_backup.py | 12,716 bytes | 2026-06-13 11:50:29
+- ver_campos_produccion.py | 254 bytes | 2026-06-14 07:52:36
+- ver_datos_produccion.py | 213 bytes | 2026-06-13 06:46:09
+- ver_estructura_produccion.py | 276 bytes | 2026-06-12 17:52:07
+- ver_estructura_produccion_v2.py | 254 bytes | 2026-06-12 18:12:25
+- ver_lote.py | 422 bytes | 2026-06-12 08:55:50
+- ver_produccion.py | 315 bytes | 2026-06-12 08:55:50
+- verificar_produccion_erp.py | 386 bytes | 2026-06-12 17:53:42
+
+========================================================================================
+3. INTEGRIDAD SQLITE
+========================================================================================
+integrity_check: ok
+Versión SQLite: 3.50.4
+foreign_keys: 1
+Cantidad total de tablas: 78
+
+========================================================================================
+4. TABLAS RELACIONADAS CON PRODUCCIÓN
+========================================================================================
+- auditoria_produccion: 6 registros
+- centros_costo_contables: 4 registros
+- centros_costos: 6 registros
+- centros_trabajo_produccion: 0 registros
+- conceptos_costos: 7 registros
+- consumos_produccion: 0 registros
+- consumos_produccion_v3: 0 registros
+- costos: 1 registros
+- costos_periodicos: 0 registros
+- documentos_producto_produccion: 0 registros
+- ejecuciones_produccion_v3: 0 registros
+- formulas_componentes: 4 registros
+- formulas_produccion: 2 registros
+- mermas_produccion_v3: 0 registros
+- mrp_ejecuciones: 0 registros
+- mrp_resultados: 0 registros
+- ordenes_historial_v2: 0 registros
+- ordenes_produccion: 2 registros
+- ordenes_produccion_v2: 0 registros
+- ordenes_requerimientos_v2: 0 registros
+- produccion: 8 registros
+- produccion_cafe: 1 registros
+- productos_produccion: 1 registros
+- recepcion_produccion: 0 registros
+- recetas_produccion: 3 registros
+- recursos_formula_produccion: 0 registros
+- reservas_materiales_mrp: 0 registros
+- sugerencias_compra_mrp: 0 registros
+- trazabilidad_produccion_v3: 0 registros
+
+========================================================================================
+5. ESTRUCTURA DE TABLAS PRIORITARIAS
+========================================================================================
+
+[TABLA] productos_produccion — 1 registros
+Columnas:
+  00. id | INTEGER | NOT NULL=0 | DEFAULT=None | PK=1
+  01. codigo | TEXT | NOT NULL=1 | DEFAULT=None | PK=0
+  02. nombre | TEXT | NOT NULL=1 | DEFAULT=None | PK=0
+  03. presentacion | TEXT | NOT NULL=1 | DEFAULT=None | PK=0
+  04. unidad | TEXT | NOT NULL=1 | DEFAULT='UND' | PK=0
+  05. categoria | TEXT | NOT NULL=0 | DEFAULT='' | PK=0
+  06. tipo | TEXT | NOT NULL=1 | DEFAULT='PRODUCTO TERMINADO' | PK=0
+  07. estado | TEXT | NOT NULL=1 | DEFAULT='ACTIVO' | PK=0
+  08. observaciones | TEXT | NOT NULL=0 | DEFAULT='' | PK=0
+  09. creado_en | TEXT | NOT NULL=0 | DEFAULT=CURRENT_TIMESTAMP | PK=0
+  10. actualizado_en | TEXT | NOT NULL=0 | DEFAULT=CURRENT_TIMESTAMP | PK=0
+  11. codigo_barras | TEXT | NOT NULL=0 | DEFAULT='' | PK=0
+  12. vida_util_dias | INTEGER | NOT NULL=1 | DEFAULT=0 | PK=0
+  13. tiempo_estandar_min | REAL | NOT NULL=1 | DEFAULT=0 | PK=0
+  14. temperatura_min | REAL | NOT NULL=0 | DEFAULT=None | PK=0
+  15. temperatura_max | REAL | NOT NULL=0 | DEFAULT=None | PK=0
+  16. humedad_min | REAL | NOT NULL=0 | DEFAULT=None | PK=0
+  17. humedad_max | REAL | NOT NULL=0 | DEFAULT=None | PK=0
+  18. ficha_tecnica | TEXT | NOT NULL=0 | DEFAULT='' | PK=0
+  19. instrucciones | TEXT | NOT NULL=0 | DEFAULT='' | PK=0
+Índices:
+  (0, 'sqlite_autoindex_productos_produccion_1', 1, 'u', 0)
+Claves foráneas:
+  Ninguna
+
+[TABLA] formulas_produccion — 2 registros
+Columnas:
+  00. id | INTEGER | NOT NULL=0 | DEFAULT=None | PK=1
+  01. producto_id | INTEGER | NOT NULL=1 | DEFAULT=None | PK=0
+  02. codigo | TEXT | NOT NULL=1 | DEFAULT=None | PK=0
+  03. version | INTEGER | NOT NULL=1 | DEFAULT=1 | PK=0
+  04. cantidad_base | REAL | NOT NULL=1 | DEFAULT=1 | PK=0
+  05. unidad_base | TEXT | NOT NULL=1 | DEFAULT='UND' | PK=0
+  06. rendimiento_pct | REAL | NOT NULL=1 | DEFAULT=100 | PK=0
+  07. merma_estandar_pct | REAL | NOT NULL=1 | DEFAULT=0 | PK=0
+  08. costo_estandar_materiales | REAL | NOT NULL=1 | DEFAULT=0 | PK=0
+  09. costo_estandar_total | REAL | NOT NULL=1 | DEFAULT=0 | PK=0
+  10. estado | TEXT | NOT NULL=1 | DEFAULT='BORRADOR' | PK=0
+  11. vigente_desde | TEXT | NOT NULL=0 | DEFAULT='' | PK=0
+  12. vigente_hasta | TEXT | NOT NULL=0 | DEFAULT='' | PK=0
+  13. observaciones | TEXT | NOT NULL=0 | DEFAULT='' | PK=0
+  14. creado_por | TEXT | NOT NULL=0 | DEFAULT='' | PK=0
+  15. creado_en | TEXT | NOT NULL=0 | DEFAULT=CURRENT_TIMESTAMP | PK=0
+  16. actualizado_en | TEXT | NOT NULL=0 | DEFAULT=CURRENT_TIMESTAMP | PK=0
+  17. costo_mano_obra_estandar | REAL | NOT NULL=1 | DEFAULT=0 | PK=0
+  18. costo_cif_estandar | REAL | NOT NULL=1 | DEFAULT=0 | PK=0
+  19. costo_servicios_estandar | REAL | NOT NULL=1 | DEFAULT=0 | PK=0
+  20. tiempo_preparacion_min | REAL | NOT NULL=1 | DEFAULT=0 | PK=0
+  21. tiempo_proceso_min | REAL | NOT NULL=1 | DEFAULT=0 | PK=0
+  22. centro_trabajo | TEXT | NOT NULL=0 | DEFAULT='' | PK=0
+  23. instrucciones_tecnicas | TEXT | NOT NULL=0 | DEFAULT='' | PK=0
+Índices:
+  (0, 'idx_formula_estado', 0, 'c', 0)
+  (1, 'idx_formula_producto', 0, 'c', 0)
+  (2, 'sqlite_autoindex_formulas_produccion_1', 1, 'u', 0)
+Claves foráneas:
+  (0, 0, 'productos_produccion', 'producto_id', 'id', 'NO ACTION', 'NO ACTION', 'NONE')
+
+[NO EXISTE] componentes_formula
+
+[TABLA] ordenes_produccion_v2 — 0 registros
+Columnas:
+  00. id | INTEGER | NOT NULL=0 | DEFAULT=None | PK=1
+  01. numero | TEXT | NOT NULL=1 | DEFAULT=None | PK=0
+  02. fecha_emision | TEXT | NOT NULL=1 | DEFAULT=None | PK=0
+  03. fecha_programada | TEXT | NOT NULL=1 | DEFAULT=None | PK=0
+  04. producto_id | INTEGER | NOT NULL=1 | DEFAULT=None | PK=0
+  05. formula_id | INTEGER | NOT NULL=1 | DEFAULT=None | PK=0
+  06. cantidad_programada | REAL | NOT NULL=1 | DEFAULT=None | PK=0
+  07. cantidad_producida | REAL | NOT NULL=1 | DEFAULT=0 | PK=0
+  08. unidad | TEXT | NOT NULL=1 | DEFAULT=None | PK=0
+  09. lote_planeado | TEXT | NOT NULL=1 | DEFAULT=None | PK=0
+  10. centro_trabajo | TEXT | NOT NULL=0 | DEFAULT='' | PK=0
+  11. responsable | TEXT | NOT NULL=0 | DEFAULT='' | PK=0
+  12. prioridad | TEXT | NOT NULL=1 | DEFAULT='NORMAL' | PK=0
+  13. estado | TEXT | NOT NULL=1 | DEFAULT='BORRADOR' | PK=0
+  14. observaciones | TEXT | NOT NULL=0 | DEFAULT='' | PK=0
+  15. aprobada_por | TEXT | NOT NULL=0 | DEFAULT='' | PK=0
+  16. aprobada_en | TEXT | NOT NULL=0 | DEFAULT='' | PK=0
+  17. liberada_por | TEXT | NOT NULL=0 | DEFAULT='' | PK=0
+  18. liberada_en | TEXT | NOT NULL=0 | DEFAULT='' | PK=0
+  19. iniciada_por | TEXT | NOT NULL=0 | DEFAULT='' | PK=0
+  20. iniciada_en | TEXT | NOT NULL=0 | DEFAULT='' | PK=0
+  21. terminada_por | TEXT | NOT NULL=0 | DEFAULT='' | PK=0
+  22. terminada_en | TEXT | NOT NULL=0 | DEFAULT='' | PK=0
+  23. anulada_por | TEXT | NOT NULL=0 | DEFAULT='' | PK=0
+  24. anulada_en | TEXT | NOT NULL=0 | DEFAULT='' | PK=0
+  25. motivo_anulacion | TEXT | NOT NULL=0 | DEFAULT='' | PK=0
+  26. creada_por | TEXT | NOT NULL=0 | DEFAULT='' | PK=0
+  27. creada_en | TEXT | NOT NULL=0 | DEFAULT=CURRENT_TIMESTAMP | PK=0
+  28. actualizada_en | TEXT | NOT NULL=0 | DEFAULT=CURRENT_TIMESTAMP | PK=0
+  29. costo_materiales_real | REAL | NOT NULL=1 | DEFAULT=0 | PK=0
+  30. costo_mano_obra_real | REAL | NOT NULL=1 | DEFAULT=0 | PK=0
+  31. costo_indirecto_real | REAL | NOT NULL=1 | DEFAULT=0 | PK=0
+  32. costo_total_real | REAL | NOT NULL=1 | DEFAULT=0 | PK=0
+  33. costo_unitario_real | REAL | NOT NULL=1 | DEFAULT=0 | PK=0
+  34. merma_real | REAL | NOT NULL=1 | DEFAULT=0 | PK=0
+  35. comprobante_id | INTEGER | NOT NULL=0 | DEFAULT=None | PK=0
+  36. estado_contable | TEXT | NOT NULL=1 | DEFAULT='NO APLICA' | PK=0
+  37. mensaje_contable | TEXT | NOT NULL=0 | DEFAULT='' | PK=0
+Índices:
+  (0, 'idx_op_v2_fecha', 0, 'c', 0)
+  (1, 'idx_op_v2_estado', 0, 'c', 0)
+  (2, 'sqlite_autoindex_ordenes_produccion_v2_1', 1, 'u', 0)
+Claves foráneas:
+  (0, 0, 'formulas_produccion', 'formula_id', 'id', 'NO ACTION', 'NO ACTION', 'NONE')
+  (1, 0, 'productos_produccion', 'producto_id', 'id', 'NO ACTION', 'NO ACTION', 'NONE')
+
+[NO EXISTE] requerimientos_v2
+
+[NO EXISTE] historial_v2
+
+[TABLA] inventario — 13 registros
+Columnas:
+  00. id | INTEGER | NOT NULL=0 | DEFAULT=None | PK=1
+  01. producto | TEXT | NOT NULL=0 | DEFAULT=None | PK=0
+  02. presentacion | TEXT | NOT NULL=0 | DEFAULT=None | PK=0
+  03. cantidad | REAL | NOT NULL=0 | DEFAULT=None | PK=0
+  04. lote | TEXT | NOT NULL=0 | DEFAULT=None | PK=0
+  05. costo_unitario | REAL | NOT NULL=0 | DEFAULT=None | PK=0
+  06. fecha_ingreso | TEXT | NOT NULL=0 | DEFAULT=None | PK=0
+  07. numero_despacho | TEXT | NOT NULL=0 | DEFAULT=None | PK=0
+  08. stock_minimo | INTEGER | NOT NULL=0 | DEFAULT=0 | PK=0
+  09. costo | REAL | NOT NULL=0 | DEFAULT=0 | PK=0
+  10. fecha | TEXT | NOT NULL=0 | DEFAULT='' | PK=0
+  11. despacho | TEXT | NOT NULL=0 | DEFAULT='' | PK=0
+Índices:
+  (0, 'idx_inventario_producto_lote', 0, 'c', 0)
+Claves foráneas:
+  Ninguna
+
+[TABLA] kardex — 26 registros
+Columnas:
+  00. id | INTEGER | NOT NULL=0 | DEFAULT=None | PK=1
+  01. fecha | TEXT | NOT NULL=0 | DEFAULT=None | PK=0
+  02. producto | TEXT | NOT NULL=0 | DEFAULT=None | PK=0
+  03. presentacion | TEXT | NOT NULL=0 | DEFAULT=None | PK=0
+  04. movimiento | TEXT | NOT NULL=0 | DEFAULT=None | PK=0
+  05. entrada | REAL | NOT NULL=0 | DEFAULT=None | PK=0
+  06. salida | REAL | NOT NULL=0 | DEFAULT=None | PK=0
+  07. saldo | REAL | NOT NULL=0 | DEFAULT=None | PK=0
+  08. costo_unitario | REAL | NOT NULL=0 | DEFAULT=None | PK=0
+  09. lote | TEXT | NOT NULL=0 | DEFAULT=None | PK=0
+  10. origen | TEXT | NOT NULL=0 | DEFAULT=None | PK=0
+  11. observaciones | TEXT | NOT NULL=0 | DEFAULT=None | PK=0
+Índices:
+  Ninguno
+Claves foráneas:
+  Ninguna
+
+[TABLA] comprobantes — 5 registros
+Columnas:
+  00. id | INTEGER | NOT NULL=0 | DEFAULT=None | PK=1
+  01. empresa_id | INTEGER | NOT NULL=1 | DEFAULT=None | PK=0
+  02. tipo_comprobante_id | INTEGER | NOT NULL=1 | DEFAULT=None | PK=0
+  03. periodo_id | INTEGER | NOT NULL=0 | DEFAULT=None | PK=0
+  04. numero | INTEGER | NOT NULL=1 | DEFAULT=None | PK=0
+  05. consecutivo | TEXT | NOT NULL=1 | DEFAULT=None | PK=0
+  06. fecha | TEXT | NOT NULL=1 | DEFAULT=None | PK=0
+  07. concepto | TEXT | NOT NULL=1 | DEFAULT=None | PK=0
+  08. tercero_id | INTEGER | NOT NULL=0 | DEFAULT=None | PK=0
+  09. documento_referencia | TEXT | NOT NULL=0 | DEFAULT='' | PK=0
+  10. modulo_origen | TEXT | NOT NULL=0 | DEFAULT='CONTABILIDAD' | PK=0
+  11. tabla_origen | TEXT | NOT NULL=0 | DEFAULT='' | PK=0
+  12. registro_origen_id | INTEGER | NOT NULL=0 | DEFAULT=None | PK=0
+  13. estado | TEXT | NOT NULL=1 | DEFAULT='BORRADOR' | PK=0
+  14. total_debito | REAL | NOT NULL=1 | DEFAULT=0 | PK=0
+  15. total_credito | REAL | NOT NULL=1 | DEFAULT=0 | PK=0
+  16. usuario | TEXT | NOT NULL=0 | DEFAULT='' | PK=0
+  17. creado_en | TEXT | NOT NULL=1 | DEFAULT=CURRENT_TIMESTAMP | PK=0
+  18. contabilizado_en | TEXT | NOT NULL=0 | DEFAULT=None | PK=0
+  19. anulado_en | TEXT | NOT NULL=0 | DEFAULT=None | PK=0
+  20. motivo_anulacion | TEXT | NOT NULL=0 | DEFAULT='' | PK=0
+  21. comprobante_reversion_id | INTEGER | NOT NULL=0 | DEFAULT=None | PK=0
+Índices:
+  (0, 'idx_comprobantes_origen', 0, 'c', 0)
+  (1, 'idx_comprobantes_fecha', 0, 'c', 0)
+  (2, 'sqlite_autoindex_comprobantes_1', 1, 'u', 0)
+Claves foráneas:
+  (0, 0, 'comprobantes', 'comprobante_reversion_id', 'id', 'NO ACTION', 'NO ACTION', 'NONE')
+  (1, 0, 'terceros_contables', 'tercero_id', 'id', 'NO ACTION', 'NO ACTION', 'NONE')
+  (2, 0, 'periodos_contables', 'periodo_id', 'id', 'NO ACTION', 'NO ACTION', 'NONE')
+  (3, 0, 'tipos_comprobante', 'tipo_comprobante_id', 'id', 'NO ACTION', 'NO ACTION', 'NONE')
+  (4, 0, 'empresas_contables', 'empresa_id', 'id', 'NO ACTION', 'NO ACTION', 'NONE')
+
+[NO EXISTE] detalle_comprobantes
+
+[TABLA] periodos_contables — 12 registros
+Columnas:
+  00. id | INTEGER | NOT NULL=0 | DEFAULT=None | PK=1
+  01. empresa_id | INTEGER | NOT NULL=1 | DEFAULT=None | PK=0
+  02. anio | INTEGER | NOT NULL=1 | DEFAULT=None | PK=0
+  03. mes | INTEGER | NOT NULL=1 | DEFAULT=None | PK=0
+  04. fecha_inicio | TEXT | NOT NULL=1 | DEFAULT=None | PK=0
+  05. fecha_fin | TEXT | NOT NULL=1 | DEFAULT=None | PK=0
+  06. estado | TEXT | NOT NULL=1 | DEFAULT='ABIERTO' | PK=0
+  07. cerrado_en | TEXT | NOT NULL=0 | DEFAULT=None | PK=0
+  08. cerrado_por | TEXT | NOT NULL=0 | DEFAULT='' | PK=0
+  09. observaciones | TEXT | NOT NULL=0 | DEFAULT='' | PK=0
+  10. fecha_cierre | TEXT | NOT NULL=0 | DEFAULT='' | PK=0
+  11. usuario_cierre | TEXT | NOT NULL=0 | DEFAULT='' | PK=0
+Índices:
+  (0, 'sqlite_autoindex_periodos_contables_1', 1, 'u', 0)
+Claves foráneas:
+  (0, 0, 'empresas_contables', 'empresa_id', 'id', 'NO ACTION', 'NO ACTION', 'NONE')
+
+========================================================================================
+6. MUESTRA DE DATOS
+========================================================================================
+
+[MUESTRA] productos_produccion
+  COLUMNAS: id | codigo | nombre | presentacion | unidad | categoria | tipo | estado | observaciones | creado_en | actualizado_en | codigo_barras | vida_util_dias | tiempo_estandar_min | temperatura_min | temperatura_max | humedad_min | humedad_max | ficha_tecnica | instrucciones
+  1 | PT-CAFE-001 | CAFE PREMIUM | 500 GR | UND | CAFE | PRODUCTO TERMINADO | ACTIVO |  | 2026-07-12 02:56:15 | 2026-07-12 02:56:15 |  | 0 | 0.0 |  |  |  |  |  | 
+
+[MUESTRA] formulas_produccion
+  COLUMNAS: id | producto_id | codigo | version | cantidad_base | unidad_base | rendimiento_pct | merma_estandar_pct | costo_estandar_materiales | costo_estandar_total | estado | vigente_desde | vigente_hasta | observaciones | creado_por | creado_en | actualizado_en | costo_mano_obra_estandar | costo_cif_estandar | costo_servicios_estandar | tiempo_preparacion_min | tiempo_proceso_min | centro_trabajo | instrucciones_tecnicas
+  1 | 1 | F-PT-CAFE-001-V1 | 1 | 1.0 | UND | 100.0 | 0.0 | 65000.0 | 65000.0 | ACTIVA | 2026-07-11 |  |  | jrive | 2026-07-12 02:58:59 | 2026-07-12 03:02:24 | 0.0 | 0.0 | 0.0 | 0.0 | 0.0 |  | 
+  2 | 1 | F-PT-CAFE-001-V2 | 2 | 1.0 | UND | 100.0 | 0.0 | 16758.571429 | 16758.571429 | BORRADOR | 2026-07-12 |  |  | jrive | 2026-07-12 10:19:03 | 2026-07-12 10:19:03 | 0.0 | 0.0 | 0.0 | 0.0 | 0.0 |  | 
+
+[MUESTRA] ordenes_produccion_v2
+  COLUMNAS: id | numero | fecha_emision | fecha_programada | producto_id | formula_id | cantidad_programada | cantidad_producida | unidad | lote_planeado | centro_trabajo | responsable | prioridad | estado | observaciones | aprobada_por | aprobada_en | liberada_por | liberada_en | iniciada_por | iniciada_en | terminada_por | terminada_en | anulada_por | anulada_en | motivo_anulacion | creada_por | creada_en | actualizada_en | costo_materiales_real | costo_mano_obra_real | costo_indirecto_real | costo_total_real | costo_unitario_real | merma_real | comprobante_id | estado_contable | mensaje_contable
+  Sin registros.
+
+[MUESTRA] inventario
+  COLUMNAS: id | producto | presentacion | cantidad | lote | costo_unitario | fecha_ingreso | numero_despacho | stock_minimo | costo | fecha | despacho
+  2 | Premium | 250 g | 100.0 | cp-2026-001 | 44200.0 | 2026-07-08 | PRUEBA-001 | 50 | 44200.0 | 2026-07-08 | PRUEBA-001
+  3 | Tradicional | 250 g | 100.0 | cp-2026-001 | 100000.0 | 2026-06-14 07:20:56 |  | 0 | 100000.0 |  | 
+  6 | Café Tradicional | 250 g | 100.0 | 002 |  |  |  | 50 | 5000.0 | 7/7/26 | 
+  7 | Café Premium | 500 g | 20.0 | lote-001 | 50000.0 | 2026-07-08 |  | 50 | 50000.0 | 2026-07-08 | 
+  8 | Café Premium | 250 g | 83.0 | cp-2026-001 | 44200.0 | 2026-07-08 | prueba-001 | 50 | 44200.0 | 2026-07-08 | prueba-001
+
+[MUESTRA] kardex
+  COLUMNAS: id | fecha | producto | presentacion | movimiento | entrada | salida | saldo | costo_unitario | lote | origen | observaciones
+  1 | 2026-06-13 11:04:17 | PRUEBA | 250 g | ENTRADA | 1.0 | 0.0 | 1.0 | 1000.0 | TEST | PRUEBA | Registro manual
+  2 | 2026-06-13 11:10:54 | Premium | 250 g | ENTRADA | 1.0 | 0.0 | 362.0 | 4420.0 | cp-2026-001 | PRODUCCION | 
+  3 | 2026-06-13 12:05:46 | Premium | 250 g | ENTRADA | 1.0 | 0.0 | 363.0 | 4420.0 | cp-2026-001 | PRODUCCION | prueba kardex final
+  4 | 2026-06-13 12:06:29 | Premium | 250 g | ENTRADA | 1.0 | 0.0 | 364.0 | 4420.0 | cp-2026-001 | PRODUCCION | prueba kardex final
+  5 | 2026-06-13 12:22:32 | Premium | 250 g | SALIDA | 0.0 | 1.0 | 363.0 | 4420.0 |  | VENTA | prueba kardex
+
+[MUESTRA] comprobantes
+  COLUMNAS: id | empresa_id | tipo_comprobante_id | periodo_id | numero | consecutivo | fecha | concepto | tercero_id | documento_referencia | modulo_origen | tabla_origen | registro_origen_id | estado | total_debito | total_credito | usuario | creado_en | contabilizado_en | anulado_en | motivo_anulacion | comprobante_reversion_id
+  1 | 1 | 3 | 7 | 1 | CV-2026-000001 | 2026-07-11 06:28:25 | V-000007 - Venta de Café Premium 250 g a Carolina rivera | 1 | V-000007 | VENTAS | ventas | 7 | CONTABILIZADO | 121720.0 | 121720.0 | jrive | 2026-07-11 11:28:25 | 2026-07-11 11:28:25 |  |  | 
+  2 | 1 | 3 | 7 | 2 | CV-2026-000002 | 2026-07-11 06:29:50 | V-000008 - Venta de Café Premium 250 g a Carolina rivera | 1 | V-000008 | VENTAS | ventas | 8 | CONTABILIZADO | 304300.0 | 304300.0 | jrive | 2026-07-11 11:29:50 | 2026-07-11 11:29:50 |  |  | 
+  3 | 1 | 2 | 7 | 1 | CC-2026-000001 | 2026-07-11 06:45:40 | Compra factura 8751 - bolsa 250 a Todo empaque | 2 | 8751 | COMPRAS | compras | 5 | CONTABILIZADO | 11900.0 | 11900.0 | jrive | 2026-07-11 11:45:40 | 2026-07-11 11:45:40 |  |  | 
+  4 | 1 | 5 | 7 | 1 | CI-2026-000001 | 2026-07-11 06:52:39 | Recaudo de cartera CxC #1 - jorge rivera | 3 | CXC-1 | CUENTAS_POR_COBRAR | pagos_cxc | 3 | CONTABILIZADO | 20000.0 | 20000.0 | jrive | 2026-07-11 11:52:39 | 2026-07-11 11:52:39 |  |  | 
+  5 | 1 | 4 | 7 | 1 | CE-2026-000001 | 2026-07-11 06:59:18 | Pago a proveedor CxP #5 - Cafe del tolima | 4 | CXP-5 | CUENTAS_POR_PAGAR | pagos_cxp | 6 | CONTABILIZADO | 740000.0 | 740000.0 | jrive | 2026-07-11 11:59:18 | 2026-07-11 11:59:18 |  |  | 
+
+[MUESTRA] periodos_contables
+  COLUMNAS: id | empresa_id | anio | mes | fecha_inicio | fecha_fin | estado | cerrado_en | cerrado_por | observaciones | fecha_cierre | usuario_cierre
+  1 | 1 | 2026 | 1 | 2026-01-01 | 2026-01-31 | ABIERTO |  |  |  |  | 
+  2 | 1 | 2026 | 2 | 2026-02-01 | 2026-02-28 | ABIERTO |  |  |  |  | 
+  3 | 1 | 2026 | 3 | 2026-03-01 | 2026-03-31 | ABIERTO |  |  |  |  | 
+  4 | 1 | 2026 | 4 | 2026-04-01 | 2026-04-30 | ABIERTO |  |  |  |  | 
+  5 | 1 | 2026 | 5 | 2026-05-01 | 2026-05-31 | ABIERTO |  |  |  |  | 
+
+========================================================================================
+7. RELACIONES DECLARADAS
+========================================================================================
+auditoria_contable: (0, 0, 'empresas_contables', 'empresa_id', 'id', 'NO ACTION', 'NO ACTION', 'NONE')
+centros_costo_contables: (0, 0, 'empresas_contables', 'empresa_id', 'id', 'NO ACTION', 'NO ACTION', 'NONE')
+cierres_contables: (0, 0, 'comprobantes', 'comprobante_cierre_id', 'id', 'NO ACTION', 'NO ACTION', 'NONE')
+cierres_contables: (1, 0, 'periodos_contables', 'periodo_id', 'id', 'NO ACTION', 'NO ACTION', 'NONE')
+cierres_contables: (2, 0, 'empresas_contables', 'empresa_id', 'id', 'NO ACTION', 'NO ACTION', 'NONE')
+comprobantes: (0, 0, 'comprobantes', 'comprobante_reversion_id', 'id', 'NO ACTION', 'NO ACTION', 'NONE')
+comprobantes: (1, 0, 'terceros_contables', 'tercero_id', 'id', 'NO ACTION', 'NO ACTION', 'NONE')
+comprobantes: (2, 0, 'periodos_contables', 'periodo_id', 'id', 'NO ACTION', 'NO ACTION', 'NONE')
+comprobantes: (3, 0, 'tipos_comprobante', 'tipo_comprobante_id', 'id', 'NO ACTION', 'NO ACTION', 'NONE')
+comprobantes: (4, 0, 'empresas_contables', 'empresa_id', 'id', 'NO ACTION', 'NO ACTION', 'NONE')
+conceptos_costos: (0, 0, 'centros_costos', 'centro_costo_id', 'id', 'NO ACTION', 'NO ACTION', 'NONE')
+consecutivos_contables: (0, 0, 'tipos_comprobante', 'tipo_comprobante_id', 'id', 'NO ACTION', 'NO ACTION', 'NONE')
+consecutivos_contables: (1, 0, 'empresas_contables', 'empresa_id', 'id', 'NO ACTION', 'NO ACTION', 'NONE')
+consumos_produccion: (0, 0, 'ordenes_produccion', 'orden_id', 'id', 'NO ACTION', 'NO ACTION', 'NONE')
+consumos_produccion_v3: (0, 0, 'ordenes_produccion_v2', 'orden_id', 'id', 'NO ACTION', 'NO ACTION', 'NONE')
+consumos_produccion_v3: (1, 0, 'ejecuciones_produccion_v3', 'ejecucion_id', 'id', 'NO ACTION', 'CASCADE', 'NONE')
+costos_periodicos: (0, 0, 'centros_costos', 'centro_costo_id', 'id', 'NO ACTION', 'NO ACTION', 'NONE')
+costos_periodicos: (1, 0, 'conceptos_costos', 'concepto_id', 'id', 'NO ACTION', 'NO ACTION', 'NONE')
+detalle_compras: (0, 0, 'compras', 'compra_id', 'id', 'NO ACTION', 'NO ACTION', 'NONE')
+detalle_comprobante: (0, 0, 'centros_costo_contables', 'centro_costo_id', 'id', 'NO ACTION', 'NO ACTION', 'NONE')
+detalle_comprobante: (1, 0, 'terceros_contables', 'tercero_id', 'id', 'NO ACTION', 'NO ACTION', 'NONE')
+detalle_comprobante: (2, 0, 'plan_cuentas', 'cuenta_id', 'id', 'NO ACTION', 'NO ACTION', 'NONE')
+detalle_comprobante: (3, 0, 'comprobantes', 'comprobante_id', 'id', 'NO ACTION', 'CASCADE', 'NONE')
+detalle_ventas_integradas: (0, 0, 'ventas_integradas', 'venta_id', 'id', 'NO ACTION', 'NO ACTION', 'NONE')
+devoluciones_ventas: (0, 0, 'ventas_integradas', 'venta_id', 'id', 'NO ACTION', 'NO ACTION', 'NONE')
+documentos_producto_produccion: (0, 0, 'productos_produccion', 'producto_id', 'id', 'NO ACTION', 'CASCADE', 'NONE')
+ejecuciones_produccion_v3: (0, 0, 'ordenes_produccion_v2', 'orden_id', 'id', 'NO ACTION', 'NO ACTION', 'NONE')
+formulas_componentes: (0, 0, 'formulas_produccion', 'formula_id', 'id', 'NO ACTION', 'CASCADE', 'NONE')
+formulas_produccion: (0, 0, 'productos_produccion', 'producto_id', 'id', 'NO ACTION', 'NO ACTION', 'NONE')
+integracion_contable: (0, 0, 'comprobantes', 'comprobante_id', 'id', 'NO ACTION', 'NO ACTION', 'NONE')
+integracion_contable: (1, 0, 'empresas_contables', 'empresa_id', 'id', 'NO ACTION', 'NO ACTION', 'NONE')
+mermas_produccion_v3: (0, 0, 'ejecuciones_produccion_v3', 'ejecucion_id', 'id', 'NO ACTION', 'CASCADE', 'NONE')
+mrp_resultados: (0, 0, 'mrp_ejecuciones', 'mrp_id', 'id', 'NO ACTION', 'CASCADE', 'NONE')
+ordenes_historial_v2: (0, 0, 'ordenes_produccion_v2', 'orden_id', 'id', 'NO ACTION', 'CASCADE', 'NONE')
+ordenes_produccion_v2: (0, 0, 'formulas_produccion', 'formula_id', 'id', 'NO ACTION', 'NO ACTION', 'NONE')
+ordenes_produccion_v2: (1, 0, 'productos_produccion', 'producto_id', 'id', 'NO ACTION', 'NO ACTION', 'NONE')
+ordenes_requerimientos_v2: (0, 0, 'ordenes_produccion_v2', 'orden_id', 'id', 'NO ACTION', 'CASCADE', 'NONE')
+parametros_calidad_producto: (0, 0, 'productos_produccion', 'producto_id', 'id', 'NO ACTION', 'CASCADE', 'NONE')
+periodos_contables: (0, 0, 'empresas_contables', 'empresa_id', 'id', 'NO ACTION', 'NO ACTION', 'NONE')
+plan_cuentas: (0, 0, 'plan_cuentas', 'cuenta_padre_id', 'id', 'NO ACTION', 'NO ACTION', 'NONE')
+plan_cuentas: (1, 0, 'empresas_contables', 'empresa_id', 'id', 'NO ACTION', 'NO ACTION', 'NONE')
+recaudos_cartera: (0, 0, 'cuentas_cobrar', 'cuenta_id', 'id', 'NO ACTION', 'NO ACTION', 'NONE')
+recetas_detalle: (0, 0, 'recetas_produccion', 'receta_id', 'id', 'NO ACTION', 'NO ACTION', 'NONE')
+recursos_formula_produccion: (0, 0, 'formulas_produccion', 'formula_id', 'id', 'NO ACTION', 'CASCADE', 'NONE')
+reglas_contables: (0, 0, 'empresas_contables', 'empresa_id', 'id', 'NO ACTION', 'NO ACTION', 'NONE')
+sugerencias_compra_mrp: (0, 0, 'mrp_ejecuciones', 'mrp_id', 'id', 'NO ACTION', 'CASCADE', 'NONE')
+terceros_contables: (0, 0, 'empresas_contables', 'empresa_id', 'id', 'NO ACTION', 'NO ACTION', 'NONE')
+tipos_comprobante: (0, 0, 'empresas_contables', 'empresa_id', 'id', 'NO ACTION', 'NO ACTION', 'NONE')
+trazabilidad_produccion_v3: (0, 0, 'ejecuciones_produccion_v3', 'ejecucion_id', 'id', 'NO ACTION', 'CASCADE', 'NONE')
+
+========================================================================================
+8. RESULTADO
+========================================================================================
+Tablas prioritarias existentes: 7 de 11
+Faltantes:
+- componentes_formula
+- requerimientos_v2
+- historial_v2
+- detalle_comprobantes
+
+Auditoría de solo lectura: no modifica archivos ni registros.

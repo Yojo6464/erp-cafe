@@ -1,0 +1,15 @@
+INICIO DE PROGRAMACIÓN — PRODUCCIÓN SIGA ERP
+
+1. Descomprima el archivo.
+2. Copie auditoria_inicio_produccion_siga.py en:
+   C:\Users\jrive\visual
+3. Abra PowerShell en esa carpeta.
+4. Ejecute:
+   python auditoria_inicio_produccion_siga.py
+5. Adjunte en el chat el archivo generado:
+   C:\Users\jrive\visual\auditoria_produccion_siga.txt
+
+El diagnóstico es de solo lectura:
+- No modifica erp_cafe.db.
+- No crea ni elimina tablas.
+- No altera los módulos existentes.

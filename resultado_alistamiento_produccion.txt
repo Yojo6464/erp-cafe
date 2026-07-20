@@ -1,0 +1,60 @@
+
+========================================================================================
+ALISTAMIENTO OPERATIVO DE PRODUCCIÓN — SIGA ERP
+========================================================================================
+Fecha: 2026-07-19 14:10:04
+Base: C:\Users\jrive\visual\erp_cafe.db
+
+========================================================================================
+1. INTEGRIDAD Y ESTRUCTURA
+========================================================================================
+integrity_check: ok
+OK     productos_produccion
+OK     formulas_produccion
+OK     formulas_componentes
+OK     ordenes_produccion_v2
+OK     ordenes_requerimientos_v2
+OK     ordenes_historial_v2
+OK     ejecuciones_produccion_v3
+OK     consumos_produccion_v3
+OK     trazabilidad_produccion_v3
+OK     mermas_produccion_v3
+OK     inventario
+OK     kardex
+
+========================================================================================
+2. PRODUCTOS Y FÓRMULAS
+========================================================================================
+{'id': 1, 'codigo': 'PT-CAFE-001', 'nombre': 'CAFE PREMIUM', 'presentacion': '500 GR', 'unidad': 'UND', 'estado': 'ACTIVO'}
+Fórmulas:
+{'id': 1, 'producto_id': 1, 'codigo': 'F-PT-CAFE-001-V1', 'version': 1, 'cantidad_base': 1.0, 'unidad_base': 'UND', 'estado': 'ACTIVA', 'costo_estandar_total': 65000.0}
+{'id': 2, 'producto_id': 1, 'codigo': 'F-PT-CAFE-001-V2', 'version': 2, 'cantidad_base': 1.0, 'unidad_base': 'UND', 'estado': 'BORRADOR', 'costo_estandar_total': 16758.571429}
+
+========================================================================================
+3. VALIDACIONES DE NEGOCIO
+========================================================================================
+Inventario disponible:
+{'producto': 'Bolsa', 'presentacion': '500', 'cantidad': 700.0, 'costo': 5000.0}
+{'producto': 'Cafe verde', 'presentacion': '1000', 'cantidad': 100.0, 'costo': 15000.0}
+{'producto': 'Cafe verde', 'presentacion': '500', 'cantidad': 99.0, 'costo': 15000.0}
+{'producto': 'Café Premium', 'presentacion': '1000 g', 'cantidad': 100.0, 'costo': 35000.0}
+{'producto': 'Café Premium', 'presentacion': '250 g', 'cantidad': 83.0, 'costo': 44200.0}
+{'producto': 'Café Premium', 'presentacion': '500 g', 'cantidad': 20.0, 'costo': 50000.0}
+{'producto': 'Café Tradicional', 'presentacion': '1000 g', 'cantidad': 100.0, 'costo': 50000.0}
+{'producto': 'Café Tradicional', 'presentacion': '250 g', 'cantidad': 100.0, 'costo': 5000.0}
+{'producto': 'Premium', 'presentacion': '250 g', 'cantidad': 100.0, 'costo': 44200.0}
+{'producto': 'Tradicional', 'presentacion': '250 g', 'cantidad': 100.0, 'costo': 100000.0}
+{'producto': 'bolsa', 'presentacion': '250', 'cantidad': 5.0, 'costo': 2000.0}
+{'producto': 'etiqueta', 'presentacion': '500', 'cantidad': 500.0, 'costo': 80.0}
+
+========================================================================================
+4. PREPARACIÓN PARA EJECUCIÓN REAL
+========================================================================================
+Órdenes registradas: 0
+Requerimientos calculados: 0
+Ejecuciones reales: 0
+
+========================================================================================
+5. RESULTADO
+========================================================================================
+APTO PARA PRUEBA OPERATIVA CONTROLADA.

@@ -1,0 +1,31 @@
+SIGA ERP - BOM PROFESIONAL v3
+CORRECCIÓN DEFINITIVA DE INTERFAZ
+
+Errores corregidos:
+1. TclError por mezclar pack y grid en el mismo contenedor.
+2. NameError porque las tablas se configuraban antes de existir.
+
+Solución aplicada:
+- Cada tabla se crea dentro de su propio marco desplazable.
+- El marco se organiza con pack en su contenedor padre.
+- La tabla y sus barras se organizan exclusivamente con grid
+  dentro del marco desplazable.
+- Se corrigieron las tres tablas:
+  * Componentes
+  * Recursos
+  * Versiones y activación
+- Se mantienen scroll vertical y horizontal.
+- La columna Estado permanece accesible.
+
+Instalación:
+1. Cierre cualquier ventana del BOM.
+2. Renombre el archivo descargado:
+   bom_profesional_v3_definitivo.py
+   a:
+   bom_profesional_v3.py
+3. Reemplace:
+   C:\Users\jrive\visual\bom_profesional_v3.py
+4. Ejecute:
+   python bom_profesional_v3.py
+
+No vuelva a ejecutar el instalador de base de datos.

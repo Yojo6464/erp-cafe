@@ -1,0 +1,35 @@
+SIGA ERP - CIERRE FINAL DEL MODULO DE PRODUCCION
+
+INSTALACION RECOMENDADA
+1. Cierre completamente SIGA ERP.
+2. Extraiga todo el contenido de este ZIP en una carpeta temporal.
+3. Ejecute INSTALAR_CIERRE_PRODUCCION.bat.
+4. El instalador crea un respaldo automático en:
+   C:\Users\jrive\visual\respaldos\produccion_cierre_FECHA_HORA
+5. Abra ordenes_produccion_v2.py.
+6. Seleccione la orden OP-2026-000001 y pulse "Ver requerimientos".
+7. Deben aparecer 3 componentes: Cafe verde, Bolsa y etiqueta.
+8. Abra ejecucion_produccion_v3.py y ejecute la orden.
+
+CORRECTIVOS INCLUIDOS
+- Generación automática y transaccional de requerimientos al crear una orden.
+- Reparación automática de órdenes antiguas sin requerimientos.
+- Bloqueo de regeneración cuando ya existen consumos.
+- Validación de fórmula y componentes.
+- Validación de disponibilidad antes de liberar.
+- Botón "Regenerar requerimientos" en seguimiento de órdenes.
+- Respaldo automático antes de modificar archivos o base de datos.
+- Validación final PRAGMA integrity_check.
+
+PRUEBA REALIZADA SOBRE LA BASE ENTREGADA
+- Orden: OP-2026-000001
+- Requerimientos generados: 3
+- Cafe verde: 10 UND
+- Bolsa: 10 UND
+- etiqueta: 10 UND
+- Integridad SQLite: OK
+
+IMPORTANTE
+No reemplace manualmente erp_cafe.db con erp_cafe_reparada.db salvo que necesite
+recuperar exactamente la copia enviada al chat. El instalador corrige la base actual
+de su computador y conserva todos los datos nuevos.

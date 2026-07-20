@@ -1,0 +1,29 @@
+SIGA ERP - BOM PROFESIONAL v3 RESPONSIVO
+============================================
+
+CORRECCIONES
+------------
+- Desplazamiento vertical general.
+- Desplazamiento horizontal general.
+- Barras verticales y horizontales en tablas.
+- Columna Estado siempre accesible.
+- Ventana adaptable a monitores pequeños.
+- Resolución mínima reducida a 900 x 600.
+- Rueda del mouse: desplazamiento vertical.
+- Shift + rueda: desplazamiento horizontal.
+- Ctrl + V: abre Versiones y activación.
+- Esc: cierra el módulo.
+
+INSTALACIÓN
+-----------
+Reemplace el archivo existente:
+
+C:\Users\jrive\visual\bom_profesional_v3.py
+
+por el archivo corregido incluido en este paquete.
+
+Luego ejecute:
+
+python bom_profesional_v3.py
+
+No es necesario volver a ejecutar el instalador de base de datos.

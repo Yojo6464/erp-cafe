@@ -1,0 +1,19 @@
+SIGA ERP - CORRECCIÓN BOM PROFESIONAL v3
+
+Problema corregido:
+- TclError por mezclar pack y grid en el mismo contenedor.
+
+Corrección aplicada:
+- tabla_componentes ahora pertenece a frame_scroll_tabla_componentes.
+- tabla_recursos ahora pertenece a frame_scroll_tabla_recursos.
+- tabla_formulas ahora pertenece a frame_scroll_tabla_formulas.
+- Se conservan desplazamiento vertical y horizontal.
+
+Instalación:
+1. Cierre bom_profesional_v3.py.
+2. Reemplace:
+   C:\Users\jrive\visual\bom_profesional_v3.py
+3. Ejecute:
+   python bom_profesional_v3.py
+
+No es necesario ejecutar nuevamente el instalador de base de datos.

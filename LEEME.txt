@@ -1,0 +1,15 @@
+SIGA ERP - Integración contable de Producción
+
+1. Cierre SIGA ERP.
+2. Copie estos dos archivos a C:\Users\jrive\visual
+3. Ejecute INSTALAR_INTEGRACION_CONTABLE_PRODUCCION.bat
+4. Debe terminar con:
+   INTEGRACIÓN CONTABLE DE PRODUCCIÓN INSTALADA CORRECTAMENTE
+
+El instalador:
+- crea un respaldo automático;
+- agrega cuentas de producto terminado, mano de obra y CIF;
+- instala 4 reglas para PRODUCCION_TERMINADA;
+- contabiliza ejecuciones anteriores que quedaron PENDIENTES;
+- actualiza la ejecución y la orden con el comprobante generado;
+- valida la integridad de SQLite.
